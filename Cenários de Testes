@@ -1,0 +1,50 @@
+Funcionalidade: Tela de Login
+
+  Cenário: Efetuar login com dados válidos
+    Dado que estou na tela de login
+    Quando eu insiro "standard_user" no campo de usuário
+    E eu insiro "secret_sauce" no campo de senha
+    E eu clico no botão de login
+    Então deve ser possível visualizar o inventário de produtos e suas respectivas fotos
+
+  Cenário: Tentativa de login com usuário bloqueado
+    Dado que estou na tela de login
+    Quando eu insiro "locked_out_user" no campo de usuário
+    E eu insiro "secret_sauce" no campo de senha
+    E eu clico no botão de login
+    Então deve aparecer uma mensagem de aviso com o texto "Epic sadface: Sorry, this user has been locked out." alertando que o usuário foi bloqueado
+
+  Cenário: Tentativa de login com usuário com problemas
+    Dado que estou na tela de login
+    Quando eu insiro "problem_user" no campo de usuário
+    E eu insiro "secret_sauce" no campo de senha
+    E eu clico no botão de login
+    Então deve ser possível visualizar os produtos no inventário e as fotos dos produtos incorretas
+	
+
+Funcionalidade: Fluxo do Checkout
+
+  Cenário: Adicionar um produto no carrinho e efetuar o fluxo de checkout com informações válidas
+    Dado que o usuário está logado
+    Quando o usuário adiciona um produto ao carrinho
+    Então o ícone de notificação da quantidade de itens adicionados ao carrinho deve ficar visível
+    E o usuário acessa o carrinho
+    Então é redirecionado para a tela do carrinho onde deve ser possível visualizar os botões de "Checkout", "Remove" e "Continue Shopping" assim como os produtos adicionados ao carrinho e a quantidade
+    E ao clicar no botão "Checkout" deve redirecionar para tela de "Your Information"
+    Então o usuário preenche com dados válidos os campos "First Name", "Last Name" e "Zip/Postal Code"
+    E procede com a compra clicando no botão de "Continue"
+    Então o usuário é redirecionado para a tela de "Overview" podendo visualizar informações como "Payment Information", "Shipping Information" e "Price Total"
+    E finaliza a compra clicando no botão de "Finish"
+    Então deve finalizar a compra e mostrar a tela de "Checkout:Complete!" com o texto "Thank you for your order!" no header e o texto "Your order has been dispatched, and will arrive just as fast as the pony can get there!" e botão "Back Home"
+	
+
+  Cenário: Adicionar um produto no carrinho e efetuar o fluxo de checkout com informações inválidas
+    Dado que o usuário está logado
+    Quando o usuário adiciona um produto ao carrinho
+    Então o ícone de notificação da quantidade de itens adicionados ao carrinho deve ficar visível
+    E o usuário acessa o carrinho
+    Então é redirecionado para a tela do carrinho onde deve ser possível visualizar os botões de "Checkout", "Remove" e "Continue Shopping" assim como os produtos adicionados ao carrinho e a quantidade
+    E ao clicar no botão "Checkout" deve redirecionar para tela de "Your Information"
+    Então o usuário procede com os campos "First Name", "Last Name" e "Zip/Postal Code" em branco
+    Então deve mostrar alerta de campos obrigatórios
+
