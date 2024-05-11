@@ -1,0 +1,15 @@
+{
+  "name": "fitec-challenge",
+  "version": "1.0.0",
+  "description": "Prova Técnica QA Pleno FiTEC Manaus",
+  "main": "index.js",
+  "scripts": {
+    "cypress:web": "npx cypress open",
+    "cypress:headless": "npx cypress run --browser electron"
+  },
+  "author": "Lucas Chixaro",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  }
+}
